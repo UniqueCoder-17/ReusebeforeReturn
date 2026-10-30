@@ -40,10 +40,14 @@ export function useIncomingRequests() {
 
 export function useSubmitRequest() {
   const queryClient = useQueryClient()
+  const { user } = useAuth()
   return useMutation({
     mutationFn: async (params: { product_id: string; owner_id: string; message: string }) => {
+      if (!user) throw new Error('You must be signed in to request an item.')
+
       const { data, error } = await supabase.from('requests').insert({
         product_id: params.product_id,
+        requester_id: user.id,
         owner_id: params.owner_id,
         message: params.message,
       }).select().single()
