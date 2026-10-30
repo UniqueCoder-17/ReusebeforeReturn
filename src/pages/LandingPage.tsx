@@ -211,7 +211,7 @@ export function LandingPage() {
           <p className="text-green-200 mb-8">Join thousands of Indians already reducing waste through local redistribution.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="xl" onClick={() => navigate('/register')} className="bg-white text-green-700 hover:bg-green-50">Get Started — It's Free</Button>
-            <Button size="xl" variant="outline" onClick={() => navigate('/explore')} className="border-white text-white hover:bg-green-600">Explore Items</Button>
+            <Button size="xl" variant="outline" onClick={() => navigate('/explore')} className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white">Explore Items</Button>
           </div>
         </div>
       </section>
