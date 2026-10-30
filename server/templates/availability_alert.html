@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Item Available — Reuse Before Return</title>
+  <style>
+    body { margin: 0; padding: 0; background: #f4f7f4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; }
+    .wrapper { max-width: 600px; margin: 32px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .header { background: linear-gradient(135deg, #16a34a, #15803d); padding: 32px 40px; text-align: center; }
+    .header h1 { margin: 0; color: #ffffff; font-size: 22px; font-weight: 700; }
+    .header p { margin: 6px 0 0; color: #bbf7d0; font-size: 14px; }
+    .body { padding: 32px 40px; }
+    .alert-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; }
+    .alert-box .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 6px; }
+    .alert-box .item-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
+    .alert-box .item-meta { font-size: 13px; color: #6b7280; margin: 0; }
+    .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .key { color: #6b7280; }
+    .detail-row .val { font-weight: 600; color: #1a1a1a; }
+    .cta { text-align: center; margin: 28px 0 8px; }
+    .cta a { display: inline-block; background: #16a34a; color: #ffffff; text-decoration: none; padding: 13px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; }
+    .cta a:hover { background: #15803d; }
+    .note { font-size: 12px; color: #9ca3af; text-align: center; margin-top: 20px; line-height: 1.6; }
+    .footer { background: #f9fafb; padding: 20px 40px; text-align: center; font-size: 12px; color: #9ca3af; border-top: 1px solid #f3f4f6; }
+    .footer a { color: #16a34a; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>🔔 Item Available Near You!</h1>
+      <p>An item matching your saved search is now available</p>
+    </div>
+    <div class="body">
+      <p style="font-size:15px; margin-bottom:20px;">Hi <strong>{{user_name}}</strong>,</p>
+      <p style="font-size:14px; color:#374151; margin-bottom:20px;">
+        Great news! An item matching your saved alert is now listed on <strong>Reuse Before Return</strong>.
+        Act quickly — popular items get claimed fast!
+      </p>
+
+      <div class="alert-box">
+        <div class="label">Available Item</div>
+        <div class="item-title">{{item_title}}</div>
+        <div class="item-meta">{{item_locality}}, {{item_city}}</div>
+      </div>
+
+      <div style="background:#f9fafb; border-radius:8px; padding:16px 20px; margin-bottom:24px;">
+        <div class="detail-row">
+          <span class="key">Condition</span>
+          <span class="val">{{item_condition}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Listing Type</span>
+          <span class="val">{{listing_type}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Price</span>
+          <span class="val">{{item_price}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Distance</span>
+          <span class="val">{{distance}}</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a href="{{item_url}}">View Item &amp; Request →</a>
+      </div>
+
+      <p class="note">
+        You're receiving this because you saved an availability alert on Reuse Before Return.<br/>
+        <a href="{{app_url}}/settings" style="color:#16a34a;">Manage your alerts</a>
+      </p>
+    </div>
+    <div class="footer">
+      <p>© 2026 <a href="{{app_url}}">Reuse Before Return</a> — Reducing waste, one item at a time 🌱</p>
+      <p><a href="{{app_url}}/settings">Notification Settings</a> &nbsp;·&nbsp; <a href="{{app_url}}/privacy">Privacy Policy</a></p>
+    </div>
+  </div>
+</body>
+</html>

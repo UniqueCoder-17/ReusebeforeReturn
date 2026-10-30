@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>New Message</title></head>
+<body style="font-family:sans-serif;background:#f9fafb;margin:0;padding:24px">
+<div style="max-width:520px;margin:0 auto;background:#fff;border-radius:12px;padding:32px;border:1px solid #e5e7eb">
+  <h1 style="color:#16a34a;font-size:20px;margin-bottom:8px">💬 New message from {{sender_name}}</h1>
+  <p style="color:#374151">Hi {{recipient_name}},</p>
+  <p style="color:#6b7280">You have a new message about <strong>{{item_title}}</strong>:</p>
+  <div style="background:#f9fafb;border-left:3px solid #16a34a;padding:12px 16px;border-radius:4px;margin:16px 0;color:#374151;font-style:italic">"{{message_preview}}"</div>
+  <div style="text-align:center;margin:24px 0">
+    <a href="{{app_url}}/messages/{{conversation_id}}" style="background:#16a34a;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600">Reply Now</a>
+  </div>
+  <p style="color:#9ca3af;font-size:12px;text-align:center">{{app_name}} · <a href="{{app_url}}/privacy" style="color:#9ca3af">Privacy Policy</a></p>
+</div>
+</body></html>
