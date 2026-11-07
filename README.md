@@ -52,11 +52,13 @@ Fill in your values in `.env`:
    - `008_signup_preferences_trigger_fix.sql` to repair notification-preferences creation during signup on existing projects
    - `009_seed_categories.sql` to ensure product categories exist
    - `010_product_image_storage.sql` to create the public image bucket and allow listing owners to upload images
-3. Optionally run `supabase/seed.sql` for demo listings
-4. Create a **public** storage bucket named `product-images` in Supabase Storage
+3. If you want sample listings to appear in Explore, set `SUPABASE_SERVICE_ROLE_KEY` in your local `.env` and run `npm run seed:demo`. This creates or reuses three clearly labeled demo accounts and seeds sample listings across those accounts. The operation is repeatable and does not change existing demo account passwords.
+4. `010_product_image_storage.sql` creates the public `product-images` bucket; no separate bucket setup is needed.
 5. Add and manage directory records in Supabase Dashboard → Table Editor → `user_directory`. Enter email addresses in lowercase without surrounding whitespace.
 
 `006_user_directory.sql` creates a standalone user directory for manual management in Supabase Dashboard → Table Editor. It stores email and profile/contact details, but deliberately does not store passwords or authentication tokens. Row Level Security is enabled and browser roles have no access; do not add public read/write policies for this table. It is not connected to app signup yet. Connect it to the authentication provider only after that provider is selected and its identity/authorization model is defined.
+
+The demo seeder uses the Supabase service-role key and must only be run locally by a trusted project administrator. Never add that key to a `VITE_` variable, Vercel frontend environment variables, or browser code. Demo listings are sample content, not real offers.
 
 The existing application auth flows still use Supabase Auth. The `profiles` table in `001_schema.sql` is tied to `auth.users`; the new `user_directory` table is separate and will not be populated by app signups. Authentication provider configuration is separate from this manual database setup. The browser only needs the project URL and public anon/publishable key; never put the service-role key in a `VITE_` variable.
 
