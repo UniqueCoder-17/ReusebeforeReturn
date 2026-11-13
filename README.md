@@ -139,6 +139,7 @@ Deploy `dist/` to Vercel. The email server (`server/`) should be deployed separa
 | `/dashboard/my-requests` | Requests sent | Auth required |
 | `/dashboard/incoming-requests` | Requests received | Auth required |
 | `/dashboard/favorites` | Saved items | Auth required |
+| `/dashboard/messages` | Message inbox | Auth required |
 | `/dashboard/notifications` | Notifications | Auth required |
 | `/messages` | Message inbox | Auth required |
 | `/messages/:id` | Conversation | Auth required |

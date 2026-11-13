@@ -53,6 +53,14 @@ function App() {
           <Route path="/list-item" element={<ProtectedRoute><ListItemPage /></ProtectedRoute>} />
           <Route path="/products/:id/edit" element={<ProtectedRoute><EditListingPage /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+          {/* /dashboard/* sub-routes — same pages, two URL patterns */}
+          <Route path="/dashboard/my-listings" element={<ProtectedRoute><MyListingsPage /></ProtectedRoute>} />
+          <Route path="/dashboard/my-requests" element={<ProtectedRoute><MyRequestsPage /></ProtectedRoute>} />
+          <Route path="/dashboard/incoming-requests" element={<ProtectedRoute><IncomingRequestsPage /></ProtectedRoute>} />
+          <Route path="/dashboard/favorites" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
+          <Route path="/dashboard/messages" element={<ProtectedRoute><InboxPage /></ProtectedRoute>} />
+          <Route path="/dashboard/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
+          {/* Legacy flat routes — redirect-equivalent aliases */}
           <Route path="/my-listings" element={<ProtectedRoute><MyListingsPage /></ProtectedRoute>} />
           <Route path="/my-requests" element={<ProtectedRoute><MyRequestsPage /></ProtectedRoute>} />
           <Route path="/incoming-requests" element={<ProtectedRoute><IncomingRequestsPage /></ProtectedRoute>} />

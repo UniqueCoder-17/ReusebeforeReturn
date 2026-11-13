@@ -121,7 +121,7 @@ export default function DashboardPage() {
           { to: '/dashboard/my-listings', icon: Package, label: 'My Listings' },
           { to: '/dashboard/my-requests', icon: Send, label: 'My Requests' },
           { to: '/dashboard/favorites', icon: Heart, label: 'Saved Items' },
-          { to: '/messages', icon: Inbox, label: 'Messages' },
+          { to: '/dashboard/messages', icon: Inbox, label: 'Messages' },
         ].map((item) => (
           <Button key={item.to} variant="outline" asChild className="h-auto flex-col py-4 gap-2">
             <Link to={item.to}>
