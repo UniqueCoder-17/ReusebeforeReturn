@@ -26,7 +26,6 @@ export function RequestModal({ product, open, onOpenChange }: Props) {
     if (existing) { toast.error('You already have an active request for this item.'); return }
     try {
       await submit.mutateAsync({ product_id: product.id, owner_id: product.owner_id, message: message.trim() })
-      await supabase.from('notifications').insert({ user_id: product.owner_id, type: 'new_request', title: 'New request for your listing', message: `Someone is interested in "${product.title}".`, related_entity_id: product.id, related_entity_type: 'product' })
       toast.success('Request sent! The owner will be notified.')
       setMessage(''); onOpenChange(false); navigate('/my-requests')
     } catch (err) { toast.error((err as Error).message || 'Failed to send request') }
